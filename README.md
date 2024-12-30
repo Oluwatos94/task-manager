@@ -23,10 +23,6 @@
 3. Copy `.env.example` to `.env` and update the database credentials.
 4. Run `php artisan migrate` to set up the database.
 
-## Running the Application
-1. Start the server using `php artisan serve`.
-2. Access the application at `http://127.0.0.1:8000`.
-
 ## Populating the Database with Dummy Data
 ### You can use Laravel Tinker to populate the database with fake data to test the application.
 
@@ -52,6 +48,10 @@
 * Verify Data: check your database to see all data or use 
 `\App\Models\Project::all();
 \App\Models\Task::all();` to see data.
+
+## Running the Application
+1. Start the server using `php artisan serve`.
+2. Access the application at `http://127.0.0.1:8000/tasks`.
 
 ## Credit
 ### Developed by Tosin Akinbowa.

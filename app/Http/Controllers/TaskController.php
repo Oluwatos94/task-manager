@@ -65,17 +65,13 @@ class TaskController extends Controller
     // Reorder tasks based on drag-and-drop
     public function reorder(Request $request)
     {
-        $order = $request->validate([
-            'order' => 'required|array',
-            'order.*.id' => 'required|exists:tasks,id',
-            'order.*.priority' => 'required|integer',
-        ]);
+        $order = $request->input('order');
 
-        foreach ($order['order'] as $item) {
-            Task::where('id', $item['id'])->update(['priority' => $item['priority']]);
+        foreach ($order as $taskData) {
+            Task::where('id', $taskData['id'])
+                ->update(['priority' => $taskData['priority']]);
         }
 
-        return response()->json(['message' => 'Tasks reordered successfully.']);
+        return response()->json(['message' => 'Task priorities updated successfully.']);
     }
-
 }
